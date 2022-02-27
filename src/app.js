@@ -1,9 +1,11 @@
 const path = require("path")
 const express =require("express");
 const hbs = require("hbs");
-const app=express()
 const forecast= require("./utils/forecast");
 const geocode = require("./utils/geocode")
+const app=express()
+const port=process.env.PORT||3000;
+
 //define path for express config
 const viewPath=path.join(__dirname,'../templates/views');
 const publicDirectoryPath=path.join(__dirname,'../public');
@@ -81,6 +83,6 @@ app.get('*',(req,res)=>{
         error:"error page not available"
     })
 })
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log('server is running guyzzz'); 
 })
